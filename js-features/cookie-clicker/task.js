@@ -8,7 +8,6 @@ console.log(cookie);
 console.log(clickerCounter);
 console.log(clickerSpeed);
 console.log(date);
-console.log(date + 'Текущее')
 
 function resize() {
     clickerCounter.textContent ++;
@@ -19,8 +18,6 @@ function resize() {
         cookie.width = 100;
     }
 }
-
-
 
 function speed() {
     const clickNow = Date.now();
