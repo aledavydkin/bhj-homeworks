@@ -1,19 +1,18 @@
 let modalMain = document.getElementById('modal_main');
 const modalSuccess = document.getElementById('modal_success');
-const modalClose = document.getElementsByClassName('modal__close');
+const modalClose = Array.from(document.querySelectorAll('.modal__close'));
 
-modalMain.className = 'modal modal_active';
 
-let arr = Array.from(modalClose);
+modalMain.classList.add('modal_active');
 
-for(let i = 0; i < arr.length; i++) {
-    arr[i].onclick = function() {
-        if(modalMain.className === 'modal modal_active') {
-            modalMain.className = 'modal';
-            modalSuccess.className = 'modal modal_active';
+modalClose.forEach((el, index) => {
+    el.onclick = function() {
+        if(el.classList.contains('show-success')) {
+            modalSuccess.classList.add('modal_active');
+            modalMain.classList.remove('modal_active');
         } else {
-            modalSuccess.className = 'modal';
+            modalMain.classList.remove('modal_active');
+            modalSuccess.classList.remove('modal_active');
         }
-
-    };
-}
+    }
+});
