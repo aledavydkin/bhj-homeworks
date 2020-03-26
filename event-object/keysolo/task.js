@@ -17,14 +17,19 @@ class Game {
   }
 
   registerEvents() {
-    /*
-      TODO:
-      Написать обработчик события, который откликается
-      на каждый введённый символ.
-      В случае правильного ввода слова вызываем this.success()
-      При неправильном вводе символа - this.fail();
-     */
+    let comparison = (event) => {
+      console.log(this.text);
+      let currentSymbol = this.currentSymbol.textContent;
+      console.log(this.currentSymbol.textContent);
+      if (currentSymbol === event.key.toLowerCase()) {
+        this.success();
+      } else {
+        this.fail();
+      }
+    };
+    document.addEventListener(`keydown`, comparison);
   }
+
 
   success() {
     this.currentSymbol.classList.add('symbol_correct');
@@ -81,9 +86,10 @@ class Game {
       )
       .join('');
     this.wordElement.innerHTML = html;
-
     this.currentSymbol = this.wordElement.querySelector('.symbol_current');
+    const text =  this.text = document.querySelectorAll('.symbol').length;
   }
+
 }
 
 new Game(document.getElementById('game'))
