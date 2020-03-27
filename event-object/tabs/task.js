@@ -1,4 +1,4 @@
-const tabNavigation =  Array.from(document.querySelectorAll('.tabs'));
+const tabNavigation = Array.from(document.querySelectorAll('.tab__navigation'));
 
 function tabs() {
     tabNavigation.forEach(element => {
@@ -6,14 +6,17 @@ function tabs() {
     });
 
     function click(e) {
-        const tabs = Array.from(e.target.closest('.tabs').querySelectorAll('.tab'));
-        const content = Array.from(e.target.closest('.tabs').querySelectorAll('.tab__content'));
-        const indexTabs = tabs.indexOf(e.target);
+        if(e.target.closest('.tab__navigation')) {
+            const tabs = Array.from(e.target.closest('.tabs').querySelectorAll('.tab'));
+            const content = Array.from(e.target.closest('.tabs').querySelectorAll('.tab__content'));
+            const indexTabs = tabs.indexOf(e.target);
 
-        tabs.forEach( (el) => el.classList.remove('tab_active') );
-        content.forEach( (el) => el.classList.remove('tab__content_active'));
-        tabs[indexTabs].classList.add('tab_active');
-        content[indexTabs].classList.add('tab__content_active');
+            tabs.forEach( (el) => el.classList.remove('tab_active') );
+            content.forEach( (el) => el.classList.remove('tab__content_active'));
+            tabs[indexTabs].classList.add('tab_active');
+            content[indexTabs].classList.add('tab__content_active');
+        }
+        return false;
     }
 }
 
