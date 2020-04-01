@@ -7,13 +7,12 @@ tooltips.forEach(el => {
         tooltip.innerText = '';
         const thisTarget = event.target;
         const title = thisTarget.getAttribute('title');
-        tooltip.classList.add('tooltip', 'tooltip_active');
-        tooltip.insertAdjacentText("afterBegin",`${title}`);
-
         let coord = el.getBoundingClientRect();
-        let left = coord.left+'px';
+        let left = el.dataset.position === 'right' ? coord.left + (coord.right - coord.left) +'px': coord.left+'px';
         let top = el.dataset.position === 'top' ? coord.top + (coord.top - coord.bottom) +'px' : coord.bottom+'px';
 
+        tooltip.classList.add('tooltip', 'tooltip_active');
+        tooltip.insertAdjacentText("afterBegin",`${title}`);
         tooltip.setAttribute('style',`left: ${left}; top: ${top}`);
 
         thisTarget.insertAdjacentElement("afterBegin", tooltip);
