@@ -1,6 +1,6 @@
 const productQuantityControls = Array.from(document.querySelectorAll('.product__quantity-controls'));
 const productAdd = Array.from(document.querySelectorAll('.product__add'));
-const cart__products = document.querySelector('.cart__products');console.log(cart__products);
+const cart__products = document.querySelector('.cart__products');
 let id = [];
 
 productQuantityControls.forEach(el => {
@@ -23,7 +23,6 @@ productQuantityControls.forEach(el => {
         el.addEventListener('click', control)
     })
 });
-
 
 productAdd.forEach(el => {
     el.addEventListener('click', function (event) {
@@ -55,4 +54,5 @@ productAdd.forEach(el => {
         }
     })
 });
+
 
