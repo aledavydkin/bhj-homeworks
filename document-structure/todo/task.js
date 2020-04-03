@@ -17,10 +17,8 @@ const addItem = function(e) {
 
         taskInput.value = '';
 
-        const taskRemove = Array.from(document.querySelectorAll('.task__remove'));
-        taskRemove.forEach(el => {
-            el.addEventListener('click', removeItem);
-        });
+        const taskRemove = document.querySelector('.task__remove');
+        taskRemove.addEventListener('click', removeItem);
     }
 };
 
