@@ -7,14 +7,14 @@ const addItem = function(e) {
     let text = taskInput.value;
 
     if(taskInput.value) {
-        tasksList.innerHTML += `
+        tasksList.insertAdjacentHTML('afterend', `
         <div class="task">
           <div class="task__title">
             ${text}
           </div>
           <a href="#" class="task__remove">&times;</a>
-        </div>
-    `;
+        </div>`);
+
         taskInput.value = '';
 
         const taskRemove = Array.from(document.querySelectorAll('.task__remove'));
@@ -32,7 +32,7 @@ taskInput.addEventListener('keydown', function(e) {
 });
 
 const removeItem = function(e) {
-   const taskRemove = e.target.closest('.task');
-   taskRemove.remove();
+    const taskRemove = e.target.closest('.task');
+    taskRemove.remove();
 };
 
