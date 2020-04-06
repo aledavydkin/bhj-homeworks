@@ -1,12 +1,9 @@
 const rotatorCase = Array.from(document.querySelectorAll('.rotator'));
 
 rotatorCase.forEach(element => {
-    const speedItem = element.querySelector('.rotator__case_active');
-    const speed = speedItem.getAttribute("data-speed");
-    console.log(speed);
-
-    const swapText = function () {
+    let swapText = setTimeout(function ticks() {
         const item = element.querySelector('.rotator__case_active');
+        let speed = item.dataset.speed;
 
         let nextElement = item.nextElementSibling;
         let firstElement = element.firstElementChild;
@@ -22,7 +19,6 @@ rotatorCase.forEach(element => {
                 nextElement.classList.add('rotator__case_active');
             }
         }
-    };
-
-    setInterval(swapText, Number(speed));
+        swapText = setTimeout(ticks, Number(speed));
+    }, 1000);
 });
