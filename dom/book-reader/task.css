@@ -19,11 +19,11 @@ body {
 }
 
 .book_bg-gray {
-  color: whitesmoke;
+  background: #000000;
 }
 
 .book_bg-white {
-  color: white;
+  background: grey;
 }
 
 .book__controls {
