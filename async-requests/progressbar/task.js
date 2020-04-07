@@ -8,14 +8,11 @@ send.addEventListener('click', (e) => {
     const formData = new FormData(form);
     const request = new XMLHttpRequest();
     request.open('POST', 'https://netology-slow-rest.herokuapp.com/upload.php');
-    request.addEventListener('progress', function(event) {
-        event.lengthComputable = true;
-        console.log(`Загружено ${event.loaded}`);
+    request.upload.addEventListener('progress', function(event) {
+        progress.value = event.loaded / event.total;
     });
     request.send(formData);
 });
-
-
 
 
 
